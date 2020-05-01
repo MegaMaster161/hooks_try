@@ -1,0 +1,100 @@
+
+ <div className="container">
+                 <main>
+              <div className="row">
+                  <div className="row">
+                      <div className="col-5 align-self-start">
+                          Одна из трёх колонок
+                      </div>
+                      <div className="col-7 align-self-center">
+                          <article>
+                              <header className="article">
+                              <div className="article__title">
+                                  <h2>Заголовок</h2>
+                                  <p>Параграф</p>
+                              </div>
+                                  <div className="meta">
+                                      <div className="time">
+                                          Время публикации
+                                      </div>
+                                  </div>
+                              </header>
+                          </article>
+                      </div>
+                  </div>
+              </div>
+                 </main>
+             </div>
+
+
+
+
+             /*
+                 const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
+
+                     setIsLoading(true);
+
+                     try {
+
+                         if (body){
+                             body = JSON.stringify(body)
+                             headers['Content-Type'] = 'application/json'
+                             headers['authorization'] = token ? `Bearer ${token}`: ''
+                         }
+
+                         const response = await fetch(url, {method, body, headers})
+                         const data = await response.json()
+
+                         if(!response.ok){
+
+                             throw new Error(data.message || 'Ошибка.')
+
+                         }
+                         console.log(data);
+
+                         setIsLoading(false);
+                         return data;
+
+
+                     } catch (e) {
+                         setIsLoading(false)
+                         setError(e.message);
+                         throw e
+                     }
+
+             }, []);
+             */
+
+
+             /*
+                     const requestOptions = {
+                         ...options,
+                         ...{
+                             headers: {
+                                 authorization: token ? `Token ${token}` : ''
+                             }
+                         }
+                     }
+             */
+
+             /*
+                     fetch(url, options)
+                         .then(res => {
+                            if(res.ok){
+                                 setResponse(res.json())
+                                 setIsLoading(false)
+                                 return response;
+                             } else if (res.status !== 200) {
+
+                             }
+                         })
+                         .then(async (data) =>{
+                             await setResponse(data)
+                             return response;
+                         } )
+                         .catch(err => {
+                             if(err){
+                                 setError(err)
+                                 setIsLoading(false)
+                                 return error;
+                             } */

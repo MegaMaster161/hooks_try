@@ -1,0 +1,9 @@
+{
+  "port": 5000,
+  "jwtSecret": "sadhjfkjsdhfkl;ajsdhkjcnsajkdchsuhceuurejkh;kjashdas;f",
+  "mysqlHost": "localhost",
+  "mysqlPort": "3306",
+  "mysqlUser": "user",
+  "mysqldb": "hooks-try",
+  "baseUrl": "http://localhost:5000"
+}

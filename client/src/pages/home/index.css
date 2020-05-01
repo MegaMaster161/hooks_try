@@ -1,0 +1,58 @@
+.wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    transition: opacity .5s ease;
+    margin: 0 auto;
+    max-width: 100%;
+    opacity: 1;
+    width: 90em;
+    padding: 3em;
+}
+
+aside {
+    display: block;
+    margin-top: 3.5em;
+    margin-right: 3em;
+    min-width: 22em;
+    width: 22em;
+}
+
+div {
+    border: 0;
+    font: inherit;
+}
+
+@media screen and (max-width: 966px) {
+
+    article .article__header {
+        flex-direction: column;
+    }
+
+    article footer {
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .col-3 {
+        display: none !important;
+        padding: 0;
+        max-width: 100%;
+    }
+    .col-9 {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .wrapper {
+        padding: 0;
+        width: 100em;
+    }
+    article {
+    margin: 3px 3px 5px 3px;
+    }
+
+
+}
