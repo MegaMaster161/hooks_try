@@ -1,16 +1,16 @@
 import React from "react";
 import './index.css';
-import ArticleHeader from "../../components/home-artical/article-header";
-import ArticleBody from "../../components/home-artical/article-body";
 
-const Article = () => {
+import HomeArticle from "../../components/home-artical";
+
+const Article = (props) => {
 
 
     return (
-      <article>
-          <ArticleHeader/>
-          <ArticleBody/>
-      </article>
+        <HomeArticle
+            match = {props.match}
+            article={null}
+        />
     );
 };
 

@@ -16,7 +16,8 @@ const CurrentUserChecker = ({children}) => {
             setCurrentUserState(state =>(
                 {
                     ...state,
-                    isLoading: false
+                    isLoading: false,
+                    isLoggedIn: false
                 }
             ))
         }
@@ -26,7 +27,8 @@ const CurrentUserChecker = ({children}) => {
         setCurrentUserState(state =>(
                 {
                     ...state,
-                    isLoading: true
+                    isLoading: true,
+                    isLoggedIn: false
                 }
         ))
     }, [token, setCurrentUserState, doFetch])
@@ -41,8 +43,11 @@ const CurrentUserChecker = ({children}) => {
             isLoading: false,
             currentUser: response
         }))
-    },[response, setCurrentUserState])
 
+
+
+    },[response, setCurrentUserState])
+    console.log('Response', response);
     return children
 
 }

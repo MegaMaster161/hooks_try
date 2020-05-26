@@ -98,3 +98,70 @@
                                  setIsLoading(false)
                                  return error;
                              } */
+
+
+                              <article>
+                                         <ArticleHeader
+                                         id          =   {article.id}
+                                         title       =   {article.title}
+                                         meta        =   {article.meta}
+                                         description =   {article.description}
+                                         owner       =   {article.owner}
+                                         createdAt    =   {article.createdAt}
+                                         />
+                                         <ArticleBody
+                                         body        =   {article.body}
+                                         />
+                                         <ArticleFooter
+                                         categories  =   {article.categories}
+                                         id          =   {article.id}
+                                         />
+                                     </article>
+
+
+                                     <article>
+                                               <ArticleHeader
+                                                   id          =   {id}
+                                                   title       =   {article.title}
+                                                   meta        =   {article.meta}
+                                                   description =   {article.description}
+                                                   owner       =   {article.owner}
+                                                   createdAt    =  {article.createdAt}
+                                               />
+                                               <ArticleBody
+                                                   body        =   {article.body}
+                                               />
+                                           </article>
+
+
+
+
+                                            <div className="row justify-content-center wrapper">
+                                                               <div className="col-9">
+
+                                                                   {isLoading && <Loader/>}
+                                                                   {!isLoading && response &&
+                                                                   ( dataArray.map((article)=>{
+                                                                         return  <HomeArticle
+                                                                               article = {article}
+                                                                               match = {props.match}
+
+                                                                           />
+
+                                                                       })
+
+                                                                   )}
+
+
+
+                                                               </div>
+                                                               <div className="col-3 aside__left">
+                                                                   <AsideIntro/>
+                                                                   <br/>
+                                                                   <AsidePost/>
+                                                               </div>
+                                                           </div>
+
+                                                              <ContentParser
+                                                                   storedState = {editorJSON}
+                                                               />

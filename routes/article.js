@@ -55,7 +55,7 @@ router.get(
             const articlesOnPage = +(req.params.articles);
             const initFn = await pagination(Article, articlesOnPage, page);
 
-           res.status(202).json(JSON.parse(initFn));
+           res.status(202).json(await JSON.parse(initFn));
 
 
         } catch (e) {

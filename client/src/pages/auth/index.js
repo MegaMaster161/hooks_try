@@ -21,13 +21,13 @@ const Auth = (props) => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [dataIsSubmited, setDataIsSubmited] = useState(false);
 
-    const [token, setToken] = useLocalStorage('token')
+    const [, setToken] = useLocalStorage('token')
 //    const [, dispatch] = useContext(UserContext)
     const [currentUserState, setCurrentUserState] = useContext(UserContext);
 
-    console.log('currentUserState', currentUserState)
+    console.log('currentUserState', currentUserState.isLoggedIn)
+
 
     const handlerSumbit = event => {
 
@@ -49,15 +49,12 @@ const Auth = (props) => {
     }
 
 
-
-
     useEffect( ()=>{
        if(!response){
            return
        }
 
        setToken(response.token)
-       setDataIsSubmited(true)
         setCurrentUserState(state => ({
             ...state,
             isLoggedIn: true,
@@ -70,9 +67,8 @@ const Auth = (props) => {
 
     }, [response, setToken, setCurrentUserState]);
 
-    if (dataIsSubmited || token){
+    if (currentUserState.isLoggedIn){
         return <Redirect to='/'/>
-
     }
 
 

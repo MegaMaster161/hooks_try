@@ -1,17 +1,21 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const ArticleHeader = (props) =>{
+
+console.log('propsHeaderArticle', props);
 
     return (
         <header className='article__header'>
             <section className='article__title'>
                 <h2>
-                    <a href='!#'>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    </a>
+                <Link to={`/article/${props.id}`}>
+                    {props.title}
+                </Link>
+
                 </h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, nostrum.
+                    {props.meta}
                 </p>
             </section>
             <section className='article__title-meta'>
@@ -20,16 +24,16 @@ const ArticleHeader = (props) =>{
                     <span className='name'>
                          <img
                              className='article__title-avatar'
-                             src='/img/ava.jpg'
+                             src={`/img/${props.id}.jpg`}
                              alt='author'/>
                             <br/>
-                        Лазева Татьяна
+                        {props.owner}
                         <br/>
 
                     </span>
                 </a>
                 <time className='published'>
-                    Сегодня
+                    {props.createdAt}
                 </time>
             </section>
         </header>

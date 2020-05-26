@@ -6,7 +6,7 @@ const ArticleFooter = (props) => {
     return (
         <footer>
             <div className='article__action'>
-                    <Link to='!#'>
+                    <Link to={`/article/${props.id}`}>
                         <button>
                         Узнать подробнее >>
                         </button>
@@ -14,8 +14,8 @@ const ArticleFooter = (props) => {
             </div>
             <ul className='article__stats'>
                 <li>
-                    <Link to='!#'>
-                        Категория
+                    <Link to={`/categories/${props.categories}/`}>
+                        ${props.categories}
                     </Link>
                 </li>
                 <li>

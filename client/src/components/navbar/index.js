@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useContext, Fragment} from "react";
 import {Link} from "react-router-dom";
 import './index.css';
+import {UserContext} from "../../context/user";
+
+
 
 const NavBar = () => {
+
+    const [currentUserState] = useContext(UserContext);
+
+
+    const {isLoggedIn} = currentUserState
+    console.log('isLoggedIn', isLoggedIn)
     return (
     <header className='navbar__header'>
       <figure className='navbar__logo'>
@@ -14,12 +23,19 @@ const NavBar = () => {
                   <li className='navbar__list-item'>
                       <Link to='/article/1'>Статья</Link>
                   </li>
-                  <li className='navbar__list-item'>
-                      <Link to='/login'>Авторизация</Link>
-                  </li>
-                  <li className='navbar__list-item'>
-                      <Link to='/register'>Регистрация</Link>
-                  </li>
+                  {
+                    isLoggedIn === false && (
+                        <Fragment>
+                            <li className='navbar__list-item'>
+                                <Link to='/login'>Авторизация</Link>
+                            </li>
+                            <li className='navbar__list-item'>
+                                <Link to='/register'>Регистрация</Link>
+                            </li>
+                        </Fragment>
+                    )
+                  }
+
                   <li className='navbar__list-item'>
                       <Link to='/'>Домой</Link>
                   </li>
