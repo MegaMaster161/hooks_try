@@ -26,9 +26,11 @@ router.get(
                 res.status(500).json({ message: 'Данной статьи не существует' })
 
             } else {
-                const {title, meta, categories,
+                let {title, meta, categories,
                     description, body, owner,
                     createdAt } = article;
+
+                body = body;
 
                 res.status(201).json({ db: {
                 title, meta, categories,
@@ -77,20 +79,19 @@ router.post(
             const {user_role, userId} = req.user;
             const owner = userId;
             console.log(user_role);
+            console.log(req.body);
 
             const value = roles.getRoleRoutePrivilegeValue(user_role, "/article", "POST");
-                console.log(value);
+
             if (value){
 
-
-                const {title, meta, categories,
-                    description, body} = req.body.article;
+                const {title, meta, body, active, image} = req.body.article;
                 console.log(req.body.article);
                 // всё отлично шоу мастгоу он.
                 const createdAt = new Date().toISOString();
                 const article = await Article.create({
-                                             title, meta, categories,
-                                             description, body, owner,
+                                             title, titleimg: image, meta,
+                                             body, owner, active,
                                              createdAt
                                                     }).then(res => {
                                                         const article = {
@@ -101,7 +102,7 @@ router.post(
 
                 res.status(202).json({message: "Доступ получен."});
 
-            } else {
+          } else {
 
                 res.status(403).json({message: "Access is denied"});
 
@@ -110,7 +111,7 @@ router.post(
 
       } catch (e) {
           res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
-        }
+      }
 
     }
 );

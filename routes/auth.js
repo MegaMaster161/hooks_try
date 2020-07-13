@@ -92,7 +92,7 @@ router.post(
     async (req, res) => {
         try {
 
-
+            console.log(req);
 
             const errors = validationResult(req)
 
@@ -104,8 +104,9 @@ router.post(
             }
 
             const {email, password} = req.body.user;
-            console.log(req.body.user);
+
             console.log(req.body);
+
             const user = await User.findOne({where: {mail: `${email}`}})
                                     .then(user=>{
                                         let result = (user === null) ?

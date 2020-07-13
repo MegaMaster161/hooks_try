@@ -1,14 +1,30 @@
 import React from 'react';
-import {Editor, convertFromRaw} from 'draft-js';
+import {convertFromRaw, EditorState} from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
 
-const ContentParser = (props) => {
+const Content = (props) => {
 
-    const storedState =  convertFromRaw(JSON.parse(props.storedState));
+
+    let storedInState;
+    if (props.body === null || undefined) {
+        storedInState = EditorState.createEmpty();
+    } else {
+        let ed = props.body
+       console.log('storedState111', ed)
+       storedInState = EditorState.createWithContent(convertFromRaw(ed));
+    }
+
     return (
         <div className="readonly-editor">
-            <Editor editorState={storedState} readOnly={true} />
+            <Editor
+                toolbarHidden
+                editorState={storedInState}
+                readOnly={true}
+                wrapperClassName="demo-wrapper"
+                editorClassName="demo-editor"
+            />
         </div>
     );
 }
 
-export default ContentParser;
+export default Content;

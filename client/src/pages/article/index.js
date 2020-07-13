@@ -1,7 +1,7 @@
 import React from "react";
 import './index.css';
 
-import HomeArticle from "../../components/home-artical";
+import HomeArticle from "../../components/home-article";
 
 const Article = (props) => {
 

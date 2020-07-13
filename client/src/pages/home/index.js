@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import HomeArticle from "../../components/home-artical";
+import HomeArticle from "../../components/home-article";
 import './index.css';
 import useFetch from "../../hooks/useFetch";
 import Loader from "../../components/loader";
@@ -25,7 +25,7 @@ const Home = (props) => {
 
     useEffect(()=>{
         if(!response){
-        return
+            return
         }
         setDataArray(response.items);
     },[response])

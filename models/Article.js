@@ -22,12 +22,12 @@ const Article = sequelize.define("articles", {
         type: Sequelize.TEXT,
         allowNull: false
     },
-    categories: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+    titleimg: {
+      type: Sequelize.TEXT,
+      allowNull: true
     },
-    description: {
-        type: Sequelize.TEXT,
+    active: {
+        type: Sequelize.BOOLEAN,
         allowNull: false
     },
     body: {

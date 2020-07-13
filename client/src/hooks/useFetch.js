@@ -17,7 +17,7 @@ const useFetch = ()  => {
         setUrl(url);
         setOptions(options);
         setIsLoading(true);
-    },[])
+    },[]);
 
     useEffect(()=>{
         if (!isLoading) {
@@ -26,15 +26,20 @@ const useFetch = ()  => {
 
     const getData = async()=> {
 
+            console.log("опции", options);
 
             try {
+
+                const headers = options.headers ?
+                    { ...options.headers,
+                        authorization : token ? `Beaer ${token}` : ''} : {
+                        authorization : token ? `Beaer ${token}` : ''
+                    }
+
                 const requestOptions = {
                     ...options,
                     ...{
-                        headers: {
-                            'Content-Type' : 'application/json;charset=utf-8',
-                            authorization : token ? `Beaer ${token}` : ''
-                        }
+                        headers
                     }
                 }
                 console.log('in Loading is:', isLoading);

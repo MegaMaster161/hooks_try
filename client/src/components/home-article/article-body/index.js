@@ -1,7 +1,13 @@
 import React from "react";
+//import ContentParser from "../../content-parser";
 
 
 const ArticleBody = (props) =>{
+
+    let content = () => {
+        return {__html: props.body}
+    }
+    console.log("Тело поста", props.body);
 
     return (
         <React.Fragment>
@@ -13,7 +19,9 @@ const ArticleBody = (props) =>{
                 </figure>
             </a>
            <p>
-               {props.body}
+               <div dangerouslySetInnerHTML={content()}
+               />
+
            </p>
         </React.Fragment>
     );
