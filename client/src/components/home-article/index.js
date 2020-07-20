@@ -65,6 +65,7 @@ const HomeArticle = ({article, match})=> {
                  />
             )
             }
+            <p></p>
         </article>
     );
 };
